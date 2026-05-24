@@ -1,7 +1,8 @@
 {% extends "layouts/base.html" %}
 
-{% block content%}
-<h1>TASKS</h1>
+{% block content %}
+
+<h1>All TASKS</h1>
 
 <ul>
     {% for task in tasks %}
@@ -13,7 +14,10 @@
             <p>{{task.title}}</p>
             {% endif %}
             <p>{{task.description}}</p>
-            <p>Tarea de : {{task.user}}</p>
+            <p>Task by : {{task.user}}</p>
+            {% if task.datecompleted %}
+            <p>Completed the : {{task.datecompleted|date:'d M Y'}}</p>
+            {% endif %}
         </li>
     </a>
     {% endfor %}
